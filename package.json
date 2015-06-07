@@ -12,6 +12,7 @@
   },
   "license": "BSD",
   "dependencies": {
+    "createerror": "1.0.0",
     "httperrors": "0.7.1"
   },
   "devDependencies": {

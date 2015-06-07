@@ -6,14 +6,19 @@ var socketErrors = require('../lib/socketErrors');
 
 describe('socketErrors', function () {
 
-    it('will copy all error information to an httpError', function (done) {
+    it('will create a properly subclassed instance', function (done) {
         // capture a genuine ECONNREFUSED error
         http.get('nonexistent').on('error', function (err) {
             var socketError = socketErrors(err);
+            var httpError = new httpErrors[504]();
 
-            expect(socketError, 'to equal', new httpErrors[504](err));
+            expect(socketError, 'to equal', new socketErrors[err.code](err));
 
-            expect(socketError, 'to have properties', ['code', 'errno', 'syscall']);
+            // has the original error propeties
+            expect(socketError, 'to have properties', Object.keys(err));
+
+            // has the httpError properties
+            expect(socketError, 'to have properties', Object.keys(httpError));
 
             done();
         });
@@ -23,7 +28,7 @@ describe('socketErrors', function () {
         var err = new Error();
         var socketError = socketErrors(err);
 
-        expect(socketError, 'to equal', new httpErrors.Unknown());
+        expect(socketError, 'to equal', new socketErrors.NotSocketError());
     });
 
     it('will not alter the original error', function () {
@@ -32,7 +37,7 @@ describe('socketErrors', function () {
         var socketError = socketErrors(err);
 
         // assert socketError was altered
-        expect(socketError, 'to equal', httpErrors[504](err));
+        expect(socketError, 'to equal', new socketErrors[err.code](err));
 
         // assert orignal err was untouched
         expect(err, 'not to have properties', ['statusCode']);
@@ -43,12 +48,22 @@ describe('socketErrors', function () {
         var statusCode = socketCodesMap[errorCode];
 
         describe(errorCode, function () {
-            it('returns a ' + statusCode, function () {
+            it('is correctly instantiated', function () {
                 var err = new Error();
                 err.code = errorCode;
                 var socketError = socketErrors(err);
 
-                expect(socketError, 'to equal', new httpErrors[statusCode](err));
+                expect(socketError, 'to equal', new socketErrors[errorCode](err));
+            });
+
+            it('returns a ' + statusCode, function () {
+                var socketError = socketErrors((function () {
+                    var err = new Error();
+                    err.code = errorCode;
+                    return err;
+                })());
+
+                expect(socketError.statusCode, 'to equal', statusCode);
             });
         });
     });
