@@ -74,6 +74,21 @@ describe('socketErrors', function () {
 
                 expect(socketError.statusCode, 'to equal', statusCode);
             });
+
+            it('lets the `code` from the original instance take precedence over the one built into the class', function () {
+                var socketError = socketErrors((function () {
+                    var err = new Error();
+                    err.code = 'SOMETHINGELSE';
+                    return err;
+                })());
+                expect(socketError.code, 'to equal', 'SOMETHINGELSE');
+            });
+
+            describe('when instantiated via the constructor', function () {
+                it('has a `code` property', function () {
+                    expect(new socketErrors[errorCode]().code, 'to equal', errorCode);
+                });
+            });
         });
     });
 
