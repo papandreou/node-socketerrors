@@ -1,5 +1,5 @@
-node-httperrors
-===============
+node-socketerrors
+=================
 
 [![NPM version](https://badge.fury.io/js/socketerrors.svg)](http://badge.fury.io/js/socketerrors)
 [![Build Status](https://travis-ci.org/alexjeffburke/node-socketerrors.svg?branch=master)](https://travis-ci.org/alexjeffburke/unode-socketerrors)
