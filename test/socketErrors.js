@@ -8,7 +8,7 @@ describe('socketErrors', function () {
 
     it('will create a properly subclassed instance', function (done) {
         // capture a genuine ECONNREFUSED error
-        http.get('nonexistent').on('error', function (err) {
+        http.get('http://localhost:59891/').on('error', function (err) {
             var socketError = socketErrors(err);
             var httpError = new httpErrors[504]();
 
