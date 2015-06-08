@@ -20,6 +20,9 @@ describe('socketErrors', function () {
             // has the httpError properties
             expect(socketError, 'to have properties', Object.keys(httpError));
 
+            // has named errorCode property
+            expect(socketError[err.code], 'to be true');
+
             done();
         });
     });
@@ -29,6 +32,9 @@ describe('socketErrors', function () {
         var socketError = socketErrors(err);
 
         expect(socketError, 'to equal', new socketErrors.NotSocketError());
+
+        // has named errorCode property
+        expect(socketError.NotSocketError, 'to be true');
     });
 
     it('will not alter the original error', function () {
@@ -54,6 +60,9 @@ describe('socketErrors', function () {
                 var socketError = socketErrors(err);
 
                 expect(socketError, 'to equal', new socketErrors[errorCode](err));
+
+                // has named errorCode property
+                expect(socketError[errorCode], 'to be true');
             });
 
             it('returns a ' + statusCode, function () {
