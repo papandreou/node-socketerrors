@@ -1,7 +1,7 @@
 {
   "name": "socketerrors",
   "version": "0.0.0",
-  "description": "Maps socket errors to httpError objects.",
+  "description": "Maps socket errors to SocketError objects subclassing httpErrors.",
   "main": "lib/socketErrors.js",
   "scripts": {
     "test": "mocha"
