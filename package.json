@@ -1,6 +1,6 @@
 {
   "name": "socketerrors",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Maps socket errors to SocketError objects subclassing httperrors.",
   "main": "lib/socketErrors.js",
   "scripts": {
