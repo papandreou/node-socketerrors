@@ -76,11 +76,10 @@ describe('socketErrors', function () {
             });
 
             it('lets the `code` from the original instance take precedence over the one built into the class', function () {
-                var socketError = socketErrors((function () {
-                    var err = new Error();
-                    err.code = 'SOMETHINGELSE';
-                    return err;
-                })());
+                var err = new Error();
+                err.code = 'SOMETHINGELSE';
+                var socketError = socketErrors(err);
+
                 expect(socketError.code, 'to equal', 'SOMETHINGELSE');
             });
 
