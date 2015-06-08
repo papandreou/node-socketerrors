@@ -1,5 +1,5 @@
 var expect = require('unexpected');
-var httpErrors = require('httpErrors');
+var httpErrors = require('httperrors');
 var http = require('http');
 var socketCodesMap = require('../lib/socketCodesMap');
 var socketErrors = require('../lib/socketErrors');
