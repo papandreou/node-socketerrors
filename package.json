@@ -13,8 +13,7 @@
   "license": "BSD",
   "dependencies": {
     "createerror": "1.0.0",
-    "httperrors": "1.2.0",
-    "lodash": "3.10.1"
+    "httperrors": "1.2.0"
   },
   "devDependencies": {
     "mocha": "2.2.5",
