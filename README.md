@@ -4,8 +4,7 @@ node-socketerrors
 [![NPM version](https://badge.fury.io/js/socketerrors.svg)](http://badge.fury.io/js/socketerrors)
 [![Build Status](https://travis-ci.org/alexjeffburke/node-socketerrors.svg?branch=master)](https://travis-ci.org/alexjeffburke/unode-socketerrors)
 
-Exposes a function mapping socket errors to SocketError objects subclassing
-<a href="https://github.com/One-com/node-httperrors">httperrors</a>.
+Exposes a function mapping socket errors to SocketError objects.
 
 The defined SocketError objects are created via
 <a href="https://github.com/One-com/node-createerror">createerror</a>.

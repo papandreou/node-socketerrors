@@ -23,6 +23,8 @@ describe('socketErrors', function () {
             // has named errorCode property
             expect(socketError[err.code], 'to be true');
 
+            expect(socketError, 'to be a', socketErrors.SocketError);
+
             done();
         });
     });
