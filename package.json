@@ -2,7 +2,7 @@
   "name": "socketerrors",
   "version": "0.2.0",
   "description": "Maps socket errors to SocketError objects subclassing httperrors.",
-  "main": "lib/socketErrors.js",
+  "main": "lib/SocketError.js",
   "scripts": {
     "test": "mocha"
   },
@@ -13,7 +13,7 @@
   "license": "BSD",
   "dependencies": {
     "createerror": "1.1.0",
-    "httperrors": "2.0.0"
+    "httperrors": "2.0.1"
   },
   "devDependencies": {
     "mocha": "2.4.5",
