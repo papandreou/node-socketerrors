@@ -1,5 +1,5 @@
 {
-  "name": "socketerrors",
+  "name": "socketerrors-papandreou",
   "version": "0.2.0",
   "description": "Maps socket errors to SocketError objects subclassing httperrors.",
   "main": "lib/SocketError.js",
