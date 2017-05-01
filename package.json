@@ -1,6 +1,6 @@
 {
   "name": "socketerrors-papandreou",
-  "version": "0.2.0-patch2",
+  "version": "0.2.0-patch3",
   "description": "Maps socket errors to SocketError objects subclassing httperrors.",
   "main": "lib/SocketError.js",
   "scripts": {
